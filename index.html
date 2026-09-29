@@ -1,860 +1,463 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>TrailMarket | Ofertas y Accesorios para Motos</title>
-
-  <meta
-    name="description"
-    content="Escaparate de productos reales para motoristas: cascos, botas, guantes, soportes de móvil, intercomunicadores y equipaje."
-  >
-
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              400: '#fbbf24',
-              500: '#f59e0b',
-              600: '#d97706',
-              700: '#b45309'
-            }
-          },
-          boxShadow: {
-            orange: '0 10px 40px rgba(245, 158, 11, 0.15)',
-            card: '0 15px 50px rgba(0, 0, 0, 0.10)'
-          }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre Dos Ruedas | Equipamiento y accesorios para moto</title>
+<meta name="description" content="Escaparate de compra para motoristas: cascos, guantes, botas, navegación, intercomunicadores, equipaje y accesorios seleccionados. Consulta el precio actual en Amazon.">
+<meta name="theme-color" content="#0a0a0a">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        accent: {
+          400: '#fb923c',
+          500: '#f97316',
+          600: '#ea580c'
         }
+      },
+      boxShadow: {
+        soft: '0 20px 60px rgba(0,0,0,.08)',
+        orange: '0 18px 60px rgba(249,115,22,.18)'
       }
     }
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet"
-  >
-
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-
-    .product-card {
-      transition:
-        transform .25s ease,
-        border-color .25s ease,
-        box-shadow .25s ease;
-    }
-
-    .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.14);
-    }
-
-    .product-image {
-      transition: transform .4s ease;
-    }
-
-    .product-card:hover .product-image {
-      transform: scale(1.05);
-    }
-
-    .hide-product {
-      display: none !important;
-    }
-
-    .active-filter {
-      background: #f59e0b !important;
-      color: #111827 !important;
-      border-color: #f59e0b !important;
-    }
-
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #f3f4f6;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #9ca3af;
-      border-radius: 999px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #f59e0b;
-    }
-  </style>
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif}
+.no-scrollbar::-webkit-scrollbar{display:none}
+.no-scrollbar{scrollbar-width:none}
+.product-card{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.product-card:hover{transform:translateY(-5px);box-shadow:0 24px 60px rgba(0,0,0,.12);border-color:#d4d4d4}
+.product-card:hover .product-art{transform:scale(1.04)}
+.product-art{transition:transform .35s ease}
+.filter.active{background:#171717;color:#fff;border-color:#171717}
+.fade-up{animation:fadeUp .6s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+</style>
 </head>
 
+<body class="bg-[#f7f7f5] text-neutral-950">
 
-<body class="min-h-screen bg-white text-black">
+<div class="bg-neutral-950 text-white">
+  <div class="mx-auto max-w-7xl px-4 py-2 text-center text-[11px] font-medium sm:text-xs">
+    Selección de equipamiento para motoristas · Precios y disponibilidad se comprueban en Amazon
+  </div>
+</div>
 
+<header class="sticky top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur">
+  <div class="mx-auto flex max-w-7xl items-center gap-4 px-4 py-4 sm:px-6 lg:px-8">
+    <a href="#" class="shrink-0">
+      <div class="text-lg font-black tracking-tight sm:text-xl">SOBRE <span class="text-orange-500">DOS RUEDAS</span></div>
+      <div class="text-[9px] font-bold uppercase tracking-[.28em] text-neutral-500">Compra para motoristas</div>
+    </a>
 
-  <!-- TOP BAR -->
-  <div class="border-b border-black/10 bg-black">
-
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 text-xs sm:px-6 lg:px-8">
-
-      <p class="text-white">
-        🔥 Ofertas seleccionadas para motoristas
-      </p>
-
-      <div class="hidden gap-5 text-gray-400 sm:flex">
-        <span>Enlaces de afiliado</span>
-        <span>✓ Ofertas actualizadas</span>
-      </div>
-
+    <div class="hidden flex-1 md:block">
+      <label class="relative mx-auto block max-w-xl">
+        <span class="sr-only">Buscar producto</span>
+        <input id="searchInput" type="search" placeholder="Busca cascos, guantes, botas, intercomunicadores..." class="w-full rounded-full border border-neutral-200 bg-neutral-100 py-3 pl-11 pr-4 text-sm outline-none transition focus:border-orange-500 focus:bg-white">
+        <svg class="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+      </label>
     </div>
 
+    <a href="#productos" class="ml-auto rounded-full bg-neutral-950 px-4 py-2.5 text-xs font-bold text-white transition hover:bg-orange-500 sm:px-5">
+      Ver productos
+    </a>
   </div>
 
-
-  <div class="border-b border-amber-500/20 bg-amber-50">
-    <div class="mx-auto max-w-7xl px-4 py-2 text-center text-xs text-gray-700 sm:px-6 lg:px-8">
-      Algunos enlaces pueden ser enlaces de afiliado. Si compras a través de ellos, podemos recibir una comisión sin coste adicional para ti.
+  <nav class="border-t border-black/5 bg-white">
+    <div class="no-scrollbar mx-auto flex max-w-7xl gap-2 overflow-x-auto px-4 py-2 sm:px-6 lg:px-8">
+      <a href="#productos" class="filter active whitespace-nowrap rounded-full border border-neutral-200 px-4 py-2 text-xs font-bold" data-filter="all">Todo</a>
+      <a href="#productos" class="filter whitespace-nowrap rounded-full border border-neutral-200 px-4 py-2 text-xs font-bold" data-filter="cascos">Cascos</a>
+      <a href="#productos" class="filter whitespace-nowrap rounded-full border border-neutral-200 px-4 py-2 text-xs font-bold" data-filter="guantes">Guantes</a>
+      <a href="#productos" class="filter whitespace-nowrap rounded-full border border-neutral-200 px-4 py-2 text-xs font-bold" data-filter="botas">Botas</a>
+      <a href="#productos" class="filter whitespace-nowrap rounded-full border border-neutral-200 px-4 py-2 text-xs font-bold" data-filter="navegacion">GPS y móvil</a>
+      <a href="#productos" class="filter whitespace-nowrap rounded-full border border-neutral-200 px-4 py-2 text-xs font-bold" data-filter="intercom">Intercomunicadores</a>
+      <a href="#productos" class="filter whitespace-nowrap rounded-full border border-neutral-200 px-4 py-2 text-xs font-bold" data-filter="equipaje">Equipaje</a>
+      <a href="#productos" class="filter whitespace-nowrap rounded-full border border-neutral-200 px-4 py-2 text-xs font-bold" data-filter="proteccion">Protección</a>
     </div>
-  </div>
+  </nav>
+</header>
 
-  <!-- NAVBAR -->
-  <header class="sticky top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur-xl">
+<main>
 
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<section class="relative overflow-hidden bg-neutral-950 text-white">
+  <div class="absolute -right-32 -top-40 h-96 w-96 rounded-full bg-orange-500/20 blur-3xl"></div>
+  <div class="absolute -bottom-40 -left-20 h-80 w-80 rounded-full bg-orange-600/10 blur-3xl"></div>
 
-      <div class="flex h-16 items-center justify-between gap-6">
-
-
-        <!-- LOGO -->
-        <a href="#" class="flex shrink-0 items-center gap-3">
-
-          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-black text-lg font-black text-white shadow-lg">
-            TM
-          </div>
-
-          <div class="hidden sm:block">
-
-            <div class="text-base font-black tracking-tight text-black">
-              Trail<span class="text-brand-500">Market</span>
-            </div>
-
-            <div class="-mt-0.5 text-[9px] font-bold uppercase tracking-[0.25em] text-gray-500">
-              Moto Store
-            </div>
-
-          </div>
-
-        </a>
-
-
-        <!-- SEARCH -->
-        <div class="hidden max-w-md flex-1 md:block">
-
-          <div class="relative">
-
-            <input
-              id="search-input"
-              type="search"
-              placeholder="Buscar cascos, botas, guantes, GPS..."
-              class="h-10 w-full rounded-xl border border-black/10 bg-gray-100 pl-11 pr-4 text-sm text-black outline-none transition placeholder:text-gray-500 focus:border-brand-500/60 focus:bg-white"
-            >
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"
-              />
-            </svg>
-
-          </div>
-
-        </div>
-
-
-        <!-- OFFERS BUTTON -->
-        <a
-          href="#ofertas"
-          class="flex shrink-0 items-center gap-2 rounded-xl border border-brand-500/30 bg-brand-500/10 px-3 py-2 text-sm font-bold text-brand-600 transition hover:bg-brand-500 hover:text-black"
-        >
-
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M3 3h2l2.4 11.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.95-1.55L21 7H6"
-            />
-
-            <circle cx="10" cy="20" r="1.5"/>
-            <circle cx="18" cy="20" r="1.5"/>
-
-          </svg>
-
-          <span class="hidden sm:inline">
-            Ofertas
-          </span>
-
-        </a>
-
+  <div class="relative mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.15fr_.85fr] lg:px-8 lg:py-24">
+    <div class="fade-up self-center">
+      <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-orange-300">
+        <span class="h-2 w-2 rounded-full bg-orange-400"></span>
+        Equipamiento · Accesorios · Moto
       </div>
-
-
-      <!-- CATEGORY NAV -->
-      <nav id="category-nav" class="-mx-4 flex gap-1 overflow-x-auto px-4 pb-3 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-        <button data-filter="all" class="nav-filter active-filter whitespace-nowrap rounded-lg px-3 py-2 text-xs font-semibold transition">
-          🔥 Todo
-        </button>
-        <button data-filter="cascos" class="nav-filter whitespace-nowrap rounded-lg px-3 py-2 text-xs font-semibold text-gray-600 transition hover:bg-gray-100 hover:text-black">
-          Cascos
-        </button>
-        <button data-filter="botas" class="nav-filter whitespace-nowrap rounded-lg px-3 py-2 text-xs font-semibold text-gray-600 transition hover:bg-gray-100 hover:text-black">
-          Botas
-        </button>
-        <button data-filter="guantes" class="nav-filter whitespace-nowrap rounded-lg px-3 py-2 text-xs font-semibold text-gray-600 transition hover:bg-gray-100 hover:text-black">
-          Guantes
-        </button>
-        <button data-filter="navegacion" class="nav-filter whitespace-nowrap rounded-lg px-3 py-2 text-xs font-semibold text-gray-600 transition hover:bg-gray-100 hover:text-black">
-          GPS / Móvil
-        </button>
-        <button data-filter="intercomunicadores" class="nav-filter whitespace-nowrap rounded-lg px-3 py-2 text-xs font-semibold text-gray-600 transition hover:bg-gray-100 hover:text-black">
-          Intercomunicadores
-        </button>
-        <button data-filter="maletas" class="nav-filter whitespace-nowrap rounded-lg px-3 py-2 text-xs font-semibold text-gray-600 transition hover:bg-gray-100 hover:text-black">
-          Maletas
-        </button>
-      </nav>
-
-    </div>
-
-  </header>
-
-
-  <!-- HERO -->
-  <section class="relative overflow-hidden border-b border-black/10 bg-white">
-
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_30%,rgba(245,158,11,0.13),transparent_35%)]"></div>
-
-    <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-
-      <div class="max-w-3xl">
-
-        <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-brand-500/20 bg-brand-500/10 px-4 py-2 text-xs font-bold uppercase tracking-wider text-brand-700">
-
-          <span class="h-2 w-2 animate-pulse rounded-full bg-brand-500"></span>
-
-          Ofertas para motoristas
-
-        </div>
-
-
-        <h1 class="text-4xl font-black leading-[1.05] tracking-tight text-black sm:text-6xl">
-
-          🔥 Mejores Ofertas y
-
-          <span class="text-brand-500">
-            Chollos
-          </span>
-
-          en Accesorios
-
-        </h1>
-
-
-        <p class="mt-6 max-w-2xl text-base leading-7 text-gray-600 sm:text-lg">
-
-          Explora productos reales de marcas conocidas y comprueba el precio y la disponibilidad directamente en Amazon.
-
-        </p>
-
-
-        <div class="mt-8 flex flex-wrap gap-3">
-
-          <a
-            href="#ofertas"
-            class="rounded-xl bg-brand-500 px-6 py-3.5 text-sm font-bold text-black shadow-lg shadow-amber-500/20 transition hover:bg-brand-400"
-          >
-            Ver ofertas 🔥
-          </a>
-
-          <a
-            href="#categorias"
-            class="rounded-xl border border-black/10 bg-gray-100 px-6 py-3.5 text-sm font-bold text-black transition hover:bg-gray-200"
-          >
-            Explorar categorías
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- FILTERS -->
-  <section id="categorias" class="border-b border-black/10 bg-gray-50">
-    <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <div class="flex flex-wrap gap-3">
-        <button data-filter="all" class="filter-button active-filter rounded-full border border-black/10 px-5 py-2.5 text-sm font-semibold transition">
-          Todo
-        </button>
-        <button data-filter="cascos" class="filter-button rounded-full border border-black/10 bg-white px-5 py-2.5 text-sm font-semibold text-gray-600 transition hover:border-brand-500/30 hover:text-black">
-          🪖 Cascos
-        </button>
-        <button data-filter="botas" class="filter-button rounded-full border border-black/10 bg-white px-5 py-2.5 text-sm font-semibold text-gray-600 transition hover:border-brand-500/30 hover:text-black">
-          🥾 Botas
-        </button>
-        <button data-filter="guantes" class="filter-button rounded-full border border-black/10 bg-white px-5 py-2.5 text-sm font-semibold text-gray-600 transition hover:border-brand-500/30 hover:text-black">
-          🧤 Guantes
-        </button>
-        <button data-filter="navegacion" class="filter-button rounded-full border border-black/10 bg-white px-5 py-2.5 text-sm font-semibold text-gray-600 transition hover:border-brand-500/30 hover:text-black">
-          📱 GPS / Móvil
-        </button>
-        <button data-filter="intercomunicadores" class="filter-button rounded-full border border-black/10 bg-white px-5 py-2.5 text-sm font-semibold text-gray-600 transition hover:border-brand-500/30 hover:text-black">
-          🎧 Intercomunicadores
-        </button>
-        <button data-filter="maletas" class="filter-button rounded-full border border-black/10 bg-white px-5 py-2.5 text-sm font-semibold text-gray-600 transition hover:border-brand-500/30 hover:text-black">
-          🧳 Maletas
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUCTS -->
-  <main
-    id="ofertas"
-    class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16"
-  >
-
-    <div class="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-
-      <div>
-
-        <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-600">
-          Catálogo de referencia
-        </p>
-
-        <h2 class="mt-2 text-2xl font-black tracking-tight text-black sm:text-3xl">
-          Productos reales para motoristas
-        </h2>
-
-        <p class="mt-2 text-sm text-gray-500">
-          Productos destacados para equipar tu moto.
-        </p>
-
-      </div>
-
-
-      <div class="flex items-center gap-2 text-xs text-gray-500">
-
-        <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-
-        Enlaces a Amazon
-
-      </div>
-
-    </div>
-
-
-    <!-- PRODUCT GRID -->
-    <div id="product-grid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-
-      <article class="product-card overflow-hidden rounded-2xl border border-black/10 bg-white shadow-card" data-category="cascos">
-        <div class="relative flex h-56 items-center justify-center overflow-hidden bg-gray-100">
-          <div class="text-7xl" aria-hidden="true">🪖</div>
-          <span class="absolute left-3 top-3 z-10 rounded-lg bg-black px-2.5 py-1 text-[10px] font-black uppercase text-brand-400">
-            Producto real
-          </span>
-        </div>
-        <div class="p-5">
-          <div class="text-[10px] font-bold uppercase tracking-wider text-brand-600">Casco integral</div>
-          <h3 class="mt-2 min-h-[48px] text-base font-bold leading-6 text-black">LS2 FF800 Storm II</h3>
-          <p class="mt-3 text-sm leading-6 text-gray-500">Casco integral de moto de la gama Storm II. Comprueba talla, variante y homologación en Amazon.</p>
-          <p class="mt-3 text-xs text-gray-500">
-            Precio y disponibilidad: consulta Amazon antes de comprar.
-          </p>
-          <a href="https://www.amazon.es/s?k=LS2+FF800+Storm+II+casco+moto" target="_blank" rel="nofollow sponsored noopener"
-             class="mt-5 flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-4 py-3 text-sm font-extrabold text-black transition hover:bg-brand-400">
-            Ver en Amazon <span>→</span>
-          </a>
-        </div>
-      </article>
-
-      <article class="product-card overflow-hidden rounded-2xl border border-black/10 bg-white shadow-card" data-category="cascos">
-        <div class="relative flex h-56 items-center justify-center overflow-hidden bg-gray-100">
-          <div class="text-7xl" aria-hidden="true">🪖</div>
-          <span class="absolute left-3 top-3 z-10 rounded-lg bg-black px-2.5 py-1 text-[10px] font-black uppercase text-brand-400">
-            Producto real
-          </span>
-        </div>
-        <div class="p-5">
-          <div class="text-[10px] font-bold uppercase tracking-wider text-brand-600">Casco integral</div>
-          <h3 class="mt-2 min-h-[48px] text-base font-bold leading-6 text-black">LS2 Storm II Solid</h3>
-          <p class="mt-3 text-sm leading-6 text-gray-500">Variante Solid de la familia LS2 Storm II. La disponibilidad y las tallas pueden variar.</p>
-          <p class="mt-3 text-xs text-gray-500">
-            Precio y disponibilidad: consulta Amazon antes de comprar.
-          </p>
-          <a href="https://www.amazon.es/s?k=LS2+Storm+II+Solid+casco+moto" target="_blank" rel="nofollow sponsored noopener"
-             class="mt-5 flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-4 py-3 text-sm font-extrabold text-black transition hover:bg-brand-400">
-            Ver en Amazon <span>→</span>
-          </a>
-        </div>
-      </article>
-
-      <article class="product-card overflow-hidden rounded-2xl border border-black/10 bg-white shadow-card" data-category="guantes">
-        <div class="relative flex h-56 items-center justify-center overflow-hidden bg-gray-100">
-          <div class="text-7xl" aria-hidden="true">🧤</div>
-          <span class="absolute left-3 top-3 z-10 rounded-lg bg-black px-2.5 py-1 text-[10px] font-black uppercase text-brand-400">
-            Producto real
-          </span>
-        </div>
-        <div class="p-5">
-          <div class="text-[10px] font-bold uppercase tracking-wider text-brand-600">Guantes</div>
-          <h3 class="mt-2 min-h-[48px] text-base font-bold leading-6 text-black">Alpinestars Copper</h3>
-          <p class="mt-3 text-sm leading-6 text-gray-500">Guantes de moto Alpinestars Copper. Comprueba talla, color y versión antes de comprar.</p>
-          <p class="mt-3 text-xs text-gray-500">
-            Precio y disponibilidad: consulta Amazon antes de comprar.
-          </p>
-          <a href="https://www.amazon.es/s?k=Alpinestars+Copper+guantes+moto" target="_blank" rel="nofollow sponsored noopener"
-             class="mt-5 flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-4 py-3 text-sm font-extrabold text-black transition hover:bg-brand-400">
-            Ver en Amazon <span>→</span>
-          </a>
-        </div>
-      </article>
-
-      <article class="product-card overflow-hidden rounded-2xl border border-black/10 bg-white shadow-card" data-category="guantes">
-        <div class="relative flex h-56 items-center justify-center overflow-hidden bg-gray-100">
-          <div class="text-7xl" aria-hidden="true">🧤</div>
-          <span class="absolute left-3 top-3 z-10 rounded-lg bg-black px-2.5 py-1 text-[10px] font-black uppercase text-brand-400">
-            Producto real
-          </span>
-        </div>
-        <div class="p-5">
-          <div class="text-[10px] font-bold uppercase tracking-wider text-brand-600">Guantes</div>
-          <h3 class="mt-2 min-h-[48px] text-base font-bold leading-6 text-black">Alpinestars SMX-1 Air V2</h3>
-          <p class="mt-3 text-sm leading-6 text-gray-500">Guantes de moto SMX-1 Air V2. La oferta concreta depende de talla, color y vendedor.</p>
-          <p class="mt-3 text-xs text-gray-500">
-            Precio y disponibilidad: consulta Amazon antes de comprar.
-          </p>
-          <a href="https://www.amazon.es/s?k=Alpinestars+SMX-1+Air+V2+guantes+moto" target="_blank" rel="nofollow sponsored noopener"
-             class="mt-5 flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-4 py-3 text-sm font-extrabold text-black transition hover:bg-brand-400">
-            Ver en Amazon <span>→</span>
-          </a>
-        </div>
-      </article>
-
-      <article class="product-card overflow-hidden rounded-2xl border border-black/10 bg-white shadow-card" data-category="navegacion">
-        <div class="relative flex h-56 items-center justify-center overflow-hidden bg-gray-100">
-          <div class="text-7xl" aria-hidden="true">📱</div>
-          <span class="absolute left-3 top-3 z-10 rounded-lg bg-black px-2.5 py-1 text-[10px] font-black uppercase text-brand-400">
-            Producto real
-          </span>
-        </div>
-        <div class="p-5">
-          <div class="text-[10px] font-bold uppercase tracking-wider text-brand-600">GPS / móvil</div>
-          <h3 class="mt-2 min-h-[48px] text-base font-bold leading-6 text-black">Quad Lock Moto Pro Handlebar Mount</h3>
-          <p class="mt-3 text-sm leading-6 text-gray-500">Sistema de soporte para móvil de Quad Lock para montaje en manillar.</p>
-          <p class="mt-3 text-xs text-gray-500">
-            Precio y disponibilidad: consulta Amazon antes de comprar.
-          </p>
-          <a href="https://www.amazon.es/s?k=QUAD+LOCK+Moto+Pro+Handlebar+Mount" target="_blank" rel="nofollow sponsored noopener"
-             class="mt-5 flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-4 py-3 text-sm font-extrabold text-black transition hover:bg-brand-400">
-            Ver en Amazon <span>→</span>
-          </a>
-        </div>
-      </article>
-
-      <article class="product-card overflow-hidden rounded-2xl border border-black/10 bg-white shadow-card" data-category="intercomunicadores">
-        <div class="relative flex h-56 items-center justify-center overflow-hidden bg-gray-100">
-          <div class="text-7xl" aria-hidden="true">🎧</div>
-          <span class="absolute left-3 top-3 z-10 rounded-lg bg-black px-2.5 py-1 text-[10px] font-black uppercase text-brand-400">
-            Producto real
-          </span>
-        </div>
-        <div class="p-5">
-          <div class="text-[10px] font-bold uppercase tracking-wider text-brand-600">Intercomunicador</div>
-          <h3 class="mt-2 min-h-[48px] text-base font-bold leading-6 text-black">Cardo Spirit</h3>
-          <p class="mt-3 text-sm leading-6 text-gray-500">Intercomunicador Bluetooth para moto Cardo Spirit. Revisa la configuración y el contenido del pack.</p>
-          <p class="mt-3 text-xs text-gray-500">
-            Precio y disponibilidad: consulta Amazon antes de comprar.
-          </p>
-          <a href="https://www.amazon.es/s?k=Cardo+Spirit+intercomunicador+moto" target="_blank" rel="nofollow sponsored noopener"
-             class="mt-5 flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-4 py-3 text-sm font-extrabold text-black transition hover:bg-brand-400">
-            Ver en Amazon <span>→</span>
-          </a>
-        </div>
-      </article>
-
-      <article class="product-card overflow-hidden rounded-2xl border border-black/10 bg-white shadow-card" data-category="data-category="botas"">
-        <div class="relative flex h-56 items-center justify-center overflow-hidden bg-gray-100">
-          <div class="text-7xl" aria-hidden="true">🥾</div>
-          <span class="absolute left-3 top-3 z-10 rounded-lg bg-black px-2.5 py-1 text-[10px] font-black uppercase text-brand-400">
-            Producto real
-          </span>
-        </div>
-        <div class="p-5">
-          <div class="text-[10px] font-bold uppercase tracking-wider text-brand-600">Botas</div>
-          <h3 class="mt-2 min-h-[48px] text-base font-bold leading-6 text-black">Alpinestars Ridge V2 WP</h3>
-          <p class="mt-3 text-sm leading-6 text-gray-500">Botas de moto Alpinestars Ridge V2 impermeables. Comprueba talla, color y vendedor antes de comprar.</p>
-          <p class="mt-3 text-xs text-gray-500">
-            Precio y disponibilidad: consulta Amazon antes de comprar.
-          </p>
-          <a href="https://www.amazon.es/s?k=Alpinestars+Ridge+V2+WP+botas+moto" target="_blank" rel="nofollow sponsored noopener"
-             class="mt-5 flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-4 py-3 text-sm font-extrabold text-black transition hover:bg-brand-400">
-            Ver en Amazon <span>→</span>
-          </a>
-        </div>
-      </article>
-
-      <article class="product-card overflow-hidden rounded-2xl border border-black/10 bg-white shadow-card" data-category="maletas">
-        <div class="relative flex h-56 items-center justify-center overflow-hidden bg-gray-100">
-          <div class="text-7xl" aria-hidden="true">🧳</div>
-          <span class="absolute left-3 top-3 z-10 rounded-lg bg-black px-2.5 py-1 text-[10px] font-black uppercase text-brand-400">
-            Producto real
-          </span>
-        </div>
-        <div class="p-5">
-          <div class="text-[10px] font-bold uppercase tracking-wider text-brand-600">Equipaje</div>
-          <h3 class="mt-2 min-h-[48px] text-base font-bold leading-6 text-black">GIVI GRT721B</h3>
-          <p class="mt-3 text-sm leading-6 text-gray-500">Sistema de carga modular GIVI con bolsas laterales y bolsa trasera.</p>
-          <p class="mt-3 text-xs text-gray-500">
-            Precio y disponibilidad: consulta Amazon antes de comprar.
-          </p>
-          <a href="https://www.amazon.es/s?k=GIVI+GRT721B" target="_blank" rel="nofollow sponsored noopener"
-             class="mt-5 flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-4 py-3 text-sm font-extrabold text-black transition hover:bg-brand-400">
-            Ver en Amazon <span>→</span>
-          </a>
-        </div>
-      </article>
-    </div>
-
-    <!-- EMPTY STATE -->
-    <div
-      id="empty-state"
-      class="hidden py-20 text-center"
-    >
-
-      <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gray-100 text-2xl">
-        🔎
-      </div>
-
-      <h3 class="mt-5 text-lg font-bold text-black">
-        No hay productos en esta categoría
-      </h3>
-
-      <p class="mt-2 text-sm text-gray-500">
-        Prueba otra categoría.
+      <h1 class="max-w-4xl text-4xl font-black leading-[1.02] tracking-tight sm:text-6xl">
+        Encuentra lo que necesitas para tu moto.
+        <span class="text-orange-400">Sin perder horas buscando.</span>
+      </h1>
+      <p class="mt-6 max-w-2xl text-base leading-7 text-neutral-300 sm:text-lg">
+        Una tienda-escaparate centrada en productos concretos: entra, filtra por categoría y comprueba el precio y la disponibilidad actual en Amazon.
       </p>
-
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a href="#productos" class="rounded-full bg-orange-500 px-6 py-3.5 text-center text-sm font-black text-white shadow-orange transition hover:bg-orange-400">Comprar equipamiento</a>
+        <a href="#categorias" class="rounded-full border border-white/20 px-6 py-3.5 text-center text-sm font-bold text-white transition hover:bg-white/10">Ver categorías</a>
+      </div>
+      <div class="mt-8 grid max-w-xl grid-cols-3 gap-4 border-t border-white/10 pt-6">
+        <div><div class="text-xl font-black">8+</div><div class="text-[11px] text-neutral-400">categorías</div></div>
+        <div><div class="text-xl font-black">12</div><div class="text-[11px] text-neutral-400">productos seleccionados</div></div>
+        <div><div class="text-xl font-black">1 clic</div><div class="text-[11px] text-neutral-400">para comprobar precio</div></div>
+      </div>
     </div>
 
-  </main>
-
-
-  <!-- AMAZON CTA -->
-  <section class="border-y border-black/10 bg-gray-100">
-
-    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 py-10 sm:px-6 md:flex-row lg:px-8">
-
-      <div>
-
-        <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-600">
-          Compra segura
-        </p>
-
-        <h2 class="mt-2 text-xl font-black text-black">
-          Encuentra tu próximo accesorio en Amazon
-        </h2>
-
-        <p class="mt-1 text-sm text-gray-500">
-          Los precios y disponibilidad pueden cambiar directamente en Amazon.
-        </p>
-
-      </div>
-
-
-      <a
-        href="https://www.amazon.es/s?k=accesorios+moto"
-        target="_blank"
-        rel="nofollow sponsored noopener"
-        class="flex shrink-0 items-center gap-3 rounded-xl bg-brand-500 px-6 py-3.5 text-sm font-extrabold text-black transition hover:bg-brand-400"
-      >
-        Explorar accesorios en Amazon
-        <span>→</span>
+    <div class="grid grid-cols-2 gap-3 lg:self-center">
+      <a href="#productos" data-category-link="cascos" class="group rounded-3xl bg-white p-5 text-neutral-950 shadow-2xl transition hover:-translate-y-1">
+        <div class="flex h-28 items-center justify-center rounded-2xl bg-neutral-100 text-6xl">🪖</div>
+        <div class="mt-4 text-sm font-black">Cascos</div>
+        <div class="mt-1 text-xs text-neutral-500">Integrales y carretera</div>
       </a>
+      <a href="#productos" data-category-link="guantes" class="group rounded-3xl bg-white p-5 text-neutral-950 shadow-2xl transition hover:-translate-y-1">
+        <div class="flex h-28 items-center justify-center rounded-2xl bg-orange-50 text-6xl">🧤</div>
+        <div class="mt-4 text-sm font-black">Guantes</div>
+        <div class="mt-1 text-xs text-neutral-500">Urbano y carretera</div>
+      </a>
+      <a href="#productos" data-category-link="botas" class="group rounded-3xl bg-white p-5 text-neutral-950 shadow-2xl transition hover:-translate-y-1">
+        <div class="flex h-28 items-center justify-center rounded-2xl bg-neutral-100 text-6xl">🥾</div>
+        <div class="mt-4 text-sm font-black">Botas</div>
+        <div class="mt-1 text-xs text-neutral-500">Calzado para moto</div>
+      </a>
+      <a href="#productos" data-category-link="intercom" class="group rounded-3xl bg-white p-5 text-neutral-950 shadow-2xl transition hover:-translate-y-1">
+        <div class="flex h-28 items-center justify-center rounded-2xl bg-orange-50 text-6xl">🎧</div>
+        <div class="mt-4 text-sm font-black">Intercom</div>
+        <div class="mt-1 text-xs text-neutral-500">Comunicación en ruta</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="categorias" class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+  <div class="flex items-end justify-between gap-4">
+    <div>
+      <p class="text-xs font-black uppercase tracking-[.2em] text-orange-600">Compra por categoría</p>
+      <h2 class="mt-2 text-3xl font-black tracking-tight sm:text-4xl">Ve directo a lo que buscas.</h2>
+    </div>
+    <a href="#productos" class="hidden text-sm font-bold underline decoration-orange-500 underline-offset-4 sm:block">Ver todo</a>
+  </div>
+
+  <div class="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
+    <button class="category-tile rounded-2xl border border-neutral-200 bg-white p-4 text-left shadow-sm transition hover:-translate-y-1 hover:border-orange-300" data-category="cascos"><span class="text-3xl">🪖</span><span class="mt-3 block text-xs font-black">Cascos</span></button>
+    <button class="category-tile rounded-2xl border border-neutral-200 bg-white p-4 text-left shadow-sm transition hover:-translate-y-1 hover:border-orange-300" data-category="guantes"><span class="text-3xl">🧤</span><span class="mt-3 block text-xs font-black">Guantes</span></button>
+    <button class="category-tile rounded-2xl border border-neutral-200 bg-white p-4 text-left shadow-sm transition hover:-translate-y-1 hover:border-orange-300" data-category="botas"><span class="text-3xl">🥾</span><span class="mt-3 block text-xs font-black">Botas</span></button>
+    <button class="category-tile rounded-2xl border border-neutral-200 bg-white p-4 text-left shadow-sm transition hover:-translate-y-1 hover:border-orange-300" data-category="navegacion"><span class="text-3xl">📱</span><span class="mt-3 block text-xs font-black">GPS / móvil</span></button>
+    <button class="category-tile rounded-2xl border border-neutral-200 bg-white p-4 text-left shadow-sm transition hover:-translate-y-1 hover:border-orange-300" data-category="intercom"><span class="text-3xl">🎧</span><span class="mt-3 block text-xs font-black">Intercom</span></button>
+    <button class="category-tile rounded-2xl border border-neutral-200 bg-white p-4 text-left shadow-sm transition hover:-translate-y-1 hover:border-orange-300" data-category="equipaje"><span class="text-3xl">🎒</span><span class="mt-3 block text-xs font-black">Equipaje</span></button>
+    <button class="category-tile rounded-2xl border border-neutral-200 bg-white p-4 text-left shadow-sm transition hover:-translate-y-1 hover:border-orange-300" data-category="proteccion"><span class="text-3xl">🛡️</span><span class="mt-3 block text-xs font-black">Protección</span></button>
+    <button class="category-tile rounded-2xl border border-neutral-200 bg-white p-4 text-left shadow-sm transition hover:-translate-y-1 hover:border-orange-300" data-category="fundas"><span class="text-3xl">🏍️</span><span class="mt-3 block text-xs font-black">Fundas</span></button>
+  </div>
+</section>
+
+<section id="productos" class="border-y border-black/5 bg-white">
+  <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+    <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="text-xs font-black uppercase tracking-[.2em] text-orange-600">Selección de compra</p>
+        <h2 class="mt-2 text-3xl font-black tracking-tight sm:text-4xl">Productos que merece la pena mirar.</h2>
+        <p class="mt-3 max-w-2xl text-sm leading-6 text-neutral-500">No fijamos precios que puedan quedarse obsoletos. Cada botón te lleva a Amazon para comprobar el precio, variantes y disponibilidad en ese momento.</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <span id="resultCount" class="rounded-full bg-neutral-100 px-3 py-2 text-xs font-bold text-neutral-600">12 productos</span>
+      </div>
+    </div>
+
+    <div id="productGrid" class="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+
+      <article class="product-card rounded-3xl border border-neutral-200 bg-white p-3" data-category="cascos" data-search="LS2 FF800 Storm II casco integral moto">
+        <div class="product-art flex h-52 items-center justify-center rounded-2xl bg-gradient-to-br from-neutral-950 to-neutral-700 text-8xl">🪖</div>
+        <div class="p-3">
+          <div class="text-[10px] font-black uppercase tracking-wider text-orange-600">Casco integral</div>
+          <h3 class="mt-2 text-base font-black leading-5">LS2 FF800 Storm II</h3>
+          <p class="mt-2 text-xs leading-5 text-neutral-500">Modelo integral de LS2 para quien busca equipamiento de carretera.</p>
+          <a href="https://www.amazon.es/s?k=LS2+FF800+Storm+II+casco+moto" target="_blank" rel="nofollow sponsored noopener" class="mt-4 flex items-center justify-between rounded-2xl bg-neutral-950 px-4 py-3 text-xs font-black text-white transition hover:bg-orange-500">Ver precio en Amazon <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="product-card rounded-3xl border border-neutral-200 bg-white p-3" data-category="cascos" data-search="LS2 Storm II Solid casco integral">
+        <div class="product-art flex h-52 items-center justify-center rounded-2xl bg-gradient-to-br from-neutral-800 to-neutral-400 text-8xl">🪖</div>
+        <div class="p-3">
+          <div class="text-[10px] font-black uppercase tracking-wider text-orange-600">Casco integral</div>
+          <h3 class="mt-2 text-base font-black leading-5">LS2 Storm II Solid</h3>
+          <p class="mt-2 text-xs leading-5 text-neutral-500">Versión Solid de la familia Storm II de LS2.</p>
+          <a href="https://www.amazon.es/s?k=LS2+Storm+II+Solid+casco" target="_blank" rel="nofollow sponsored noopener" class="mt-4 flex items-center justify-between rounded-2xl bg-neutral-950 px-4 py-3 text-xs font-black text-white transition hover:bg-orange-500">Ver precio en Amazon <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="product-card rounded-3xl border border-neutral-200 bg-white p-3" data-category="guantes" data-search="Alpinestars Copper guantes moto">
+        <div class="product-art flex h-52 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-100 to-orange-50 text-8xl">🧤</div>
+        <div class="p-3">
+          <div class="text-[10px] font-black uppercase tracking-wider text-orange-600">Guantes</div>
+          <h3 class="mt-2 text-base font-black leading-5">Alpinestars Copper</h3>
+          <p class="mt-2 text-xs leading-5 text-neutral-500">Guantes de moto de la gama Copper de Alpinestars.</p>
+          <a href="https://www.amazon.es/s?k=Alpinestars+Copper+guantes+moto" target="_blank" rel="nofollow sponsored noopener" class="mt-4 flex items-center justify-between rounded-2xl bg-neutral-950 px-4 py-3 text-xs font-black text-white transition hover:bg-orange-500">Ver precio en Amazon <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="product-card rounded-3xl border border-neutral-200 bg-white p-3" data-category="guantes" data-search="Alpinestars SMX-1 Air V2 guantes moto">
+        <div class="product-art flex h-52 items-center justify-center rounded-2xl bg-gradient-to-br from-neutral-950 to-neutral-600 text-8xl">🧤</div>
+        <div class="p-3">
+          <div class="text-[10px] font-black uppercase tracking-wider text-orange-600">Guantes · Urbano / carretera</div>
+          <h3 class="mt-2 text-base font-black leading-5">Alpinestars SMX-1 Air V2</h3>
+          <p class="mt-2 text-xs leading-5 text-neutral-500">Cuero y malla; modelo de carretera y uso urbano de Alpinestars.</p>
+          <a href="https://www.amazon.es/s?k=Alpinestars+SMX-1+Air+V2+guantes" target="_blank" rel="nofollow sponsored noopener" class="mt-4 flex items-center justify-between rounded-2xl bg-neutral-950 px-4 py-3 text-xs font-black text-white transition hover:bg-orange-500">Ver precio en Amazon <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="product-card rounded-3xl border border-neutral-200 bg-white p-3" data-category="botas" data-search="Alpinestars Ridge V2 Waterproof botas moto">
+        <div class="product-art flex h-52 items-center justify-center rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-500 text-8xl">🥾</div>
+        <div class="p-3">
+          <div class="text-[10px] font-black uppercase tracking-wider text-orange-600">Botas</div>
+          <h3 class="mt-2 text-base font-black leading-5">Alpinestars Ridge V2 Waterproof</h3>
+          <p class="mt-2 text-xs leading-5 text-neutral-500">Bota Ridge V2 Waterproof de Alpinestars.</p>
+          <a href="https://www.amazon.es/s?k=Alpinestars+Ridge+V2+Waterproof+botas+moto" target="_blank" rel="nofollow sponsored noopener" class="mt-4 flex items-center justify-between rounded-2xl bg-neutral-950 px-4 py-3 text-xs font-black text-white transition hover:bg-orange-500">Ver precio en Amazon <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="product-card rounded-3xl border border-neutral-200 bg-white p-3" data-category="botas" data-search="TCX R04D Air botas moto">
+        <div class="product-art flex h-52 items-center justify-center rounded-2xl bg-gradient-to-br from-neutral-200 to-neutral-100 text-8xl">🥾</div>
+        <div class="p-3">
+          <div class="text-[10px] font-black uppercase tracking-wider text-orange-600">Botas / zapatillas</div>
+          <h3 class="mt-2 text-base font-black leading-5">TCX R04D Air</h3>
+          <p class="mt-2 text-xs leading-5 text-neutral-500">Modelo R04D Air de TCX para equipamiento de moto.</p>
+          <a href="https://www.amazon.es/s?k=TCX+R04D+Air+moto" target="_blank" rel="nofollow sponsored noopener" class="mt-4 flex items-center justify-between rounded-2xl bg-neutral-950 px-4 py-3 text-xs font-black text-white transition hover:bg-orange-500">Ver precio en Amazon <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="product-card rounded-3xl border border-neutral-200 bg-white p-3" data-category="navegacion" data-search="Quad Lock Motorcycle Mount Pro soporte moto manillar">
+        <div class="product-art flex h-52 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-200 to-orange-50 text-8xl">📱</div>
+        <div class="p-3">
+          <div class="text-[10px] font-black uppercase tracking-wider text-orange-600">GPS / móvil</div>
+          <h3 class="mt-2 text-base font-black leading-5">Quad Lock Motorcycle Mount Pro</h3>
+          <p class="mt-2 text-xs leading-5 text-neutral-500">Soporte Quad Lock Pro para montar el móvil en la moto.</p>
+          <a href="https://www.amazon.es/s?k=Quad+Lock+Motorcycle+Mount+Pro" target="_blank" rel="nofollow sponsored noopener" class="mt-4 flex items-center justify-between rounded-2xl bg-neutral-950 px-4 py-3 text-xs font-black text-white transition hover:bg-orange-500">Ver precio en Amazon <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="product-card rounded-3xl border border-neutral-200 bg-white p-3" data-category="navegacion" data-search="SP Connect Moto Mount Pro soporte moto">
+        <div class="product-art flex h-52 items-center justify-center rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-500 text-8xl">📱</div>
+        <div class="p-3">
+          <div class="text-[10px] font-black uppercase tracking-wider text-orange-600">GPS / móvil</div>
+          <h3 class="mt-2 text-base font-black leading-5">SP Connect Moto Mount Pro</h3>
+          <p class="mt-2 text-xs leading-5 text-neutral-500">Soporte Moto Mount Pro de SP Connect.</p>
+          <a href="https://www.amazon.es/s?k=SP+Connect+Moto+Mount+Pro" target="_blank" rel="nofollow sponsored noopener" class="mt-4 flex items-center justify-between rounded-2xl bg-neutral-950 px-4 py-3 text-xs font-black text-white transition hover:bg-orange-500">Ver precio en Amazon <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="product-card rounded-3xl border border-neutral-200 bg-white p-3" data-category="intercom" data-search="Cardo Spirit intercomunicador moto">
+        <div class="product-art flex h-52 items-center justify-center rounded-2xl bg-gradient-to-br from-neutral-950 to-neutral-700 text-8xl">🎧</div>
+        <div class="p-3">
+          <div class="text-[10px] font-black uppercase tracking-wider text-orange-600">Intercomunicadores</div>
+          <h3 class="mt-2 text-base font-black leading-5">Cardo Spirit</h3>
+          <p class="mt-2 text-xs leading-5 text-neutral-500">Intercomunicador Cardo Spirit para comunicación sobre la moto.</p>
+          <a href="https://www.amazon.es/s?k=Cardo+Spirit+intercomunicador+moto" target="_blank" rel="nofollow sponsored noopener" class="mt-4 flex items-center justify-between rounded-2xl bg-neutral-950 px-4 py-3 text-xs font-black text-white transition hover:bg-orange-500">Ver precio en Amazon <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="product-card rounded-3xl border border-neutral-200 bg-white p-3" data-category="intercom" data-search="Cardo Freecom 2X intercomunicador moto">
+        <div class="product-art flex h-52 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-100 to-white text-8xl">🎧</div>
+        <div class="p-3">
+          <div class="text-[10px] font-black uppercase tracking-wider text-orange-600">Intercomunicadores</div>
+          <h3 class="mt-2 text-base font-black leading-5">Cardo Freecom 2X</h3>
+          <p class="mt-2 text-xs leading-5 text-neutral-500">Modelo Freecom 2X de Cardo para comunicación en ruta.</p>
+          <a href="https://www.amazon.es/s?k=Cardo+Freecom+2X+intercomunicador" target="_blank" rel="nofollow sponsored noopener" class="mt-4 flex items-center justify-between rounded-2xl bg-neutral-950 px-4 py-3 text-xs font-black text-white transition hover:bg-orange-500">Ver precio en Amazon <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="product-card rounded-3xl border border-neutral-200 bg-white p-3" data-category="equipaje" data-search="GIVI EA114GR bolsa moto impermeable">
+        <div class="product-art flex h-52 items-center justify-center rounded-2xl bg-gradient-to-br from-neutral-800 to-neutral-300 text-8xl">🎒</div>
+        <div class="p-3">
+          <div class="text-[10px] font-black uppercase tracking-wider text-orange-600">Equipaje</div>
+          <h3 class="mt-2 text-base font-black leading-5">GIVI EA114GR</h3>
+          <p class="mt-2 text-xs leading-5 text-neutral-500">Bolsa cilíndrica impermeable EA114GR de GIVI.</p>
+          <a href="https://www.amazon.es/s?k=GIVI+EA114GR+bolsa+moto" target="_blank" rel="nofollow sponsored noopener" class="mt-4 flex items-center justify-between rounded-2xl bg-neutral-950 px-4 py-3 text-xs font-black text-white transition hover:bg-orange-500">Ver precio en Amazon <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="product-card rounded-3xl border border-neutral-200 bg-white p-3" data-category="equipaje" data-search="GIVI GRT721B Canyon bolsa moto">
+        <div class="product-art flex h-52 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-200 to-neutral-100 text-8xl">🎒</div>
+        <div class="p-3">
+          <div class="text-[10px] font-black uppercase tracking-wider text-orange-600">Equipaje</div>
+          <h3 class="mt-2 text-base font-black leading-5">GIVI GRT721B</h3>
+          <p class="mt-2 text-xs leading-5 text-neutral-500">Producto de la gama GRT de GIVI para equipaje de moto.</p>
+          <a href="https://www.amazon.es/s?k=GIVI+GRT721B+moto" target="_blank" rel="nofollow sponsored noopener" class="mt-4 flex items-center justify-between rounded-2xl bg-neutral-950 px-4 py-3 text-xs font-black text-white transition hover:bg-orange-500">Ver precio en Amazon <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="product-card rounded-3xl border border-neutral-200 bg-white p-3" data-category="proteccion" data-search="Alpinestars Nucleon Flex Pro protector moto">
+        <div class="product-art flex h-52 items-center justify-center rounded-2xl bg-gradient-to-br from-neutral-950 to-neutral-600 text-8xl">🛡️</div>
+        <div class="p-3">
+          <div class="text-[10px] font-black uppercase tracking-wider text-orange-600">Protección</div>
+          <h3 class="mt-2 text-base font-black leading-5">Alpinestars Nucleon Flex Pro</h3>
+          <p class="mt-2 text-xs leading-5 text-neutral-500">Protector Nucleon Flex Pro de Alpinestars.</p>
+          <a href="https://www.amazon.es/s?k=Alpinestars+Nucleon+Flex+Pro+moto" target="_blank" rel="nofollow sponsored noopener" class="mt-4 flex items-center justify-between rounded-2xl bg-neutral-950 px-4 py-3 text-xs font-black text-white transition hover:bg-orange-500">Ver precio en Amazon <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="product-card rounded-3xl border border-neutral-200 bg-white p-3" data-category="fundas" data-search="Oxford Aquatex funda moto">
+        <div class="product-art flex h-52 items-center justify-center rounded-2xl bg-gradient-to-br from-neutral-200 to-neutral-50 text-8xl">🏍️</div>
+        <div class="p-3">
+          <div class="text-[10px] font-black uppercase tracking-wider text-orange-600">Funda para moto</div>
+          <h3 class="mt-2 text-base font-black leading-5">Oxford Aquatex</h3>
+          <p class="mt-2 text-xs leading-5 text-neutral-500">Funda Aquatex de Oxford; disponible en distintas tallas.</p>
+          <a href="https://www.amazon.es/s?k=Oxford+Aquatex+funda+moto" target="_blank" rel="nofollow sponsored noopener" class="mt-4 flex items-center justify-between rounded-2xl bg-neutral-950 px-4 py-3 text-xs font-black text-white transition hover:bg-orange-500">Ver precio en Amazon <span>→</span></a>
+        </div>
+      </article>
 
     </div>
 
-  </section>
+    <div id="emptyState" class="hidden py-16 text-center">
+      <div class="text-5xl">🔎</div>
+      <h3 class="mt-4 text-xl font-black">No hemos encontrado ese producto.</h3>
+      <p class="mt-2 text-sm text-neutral-500">Prueba otra búsqueda o cambia de categoría.</p>
+    </div>
+  </div>
+</section>
 
-
-  <!-- FOOTER -->
-  <footer class="border-t border-black/10 bg-black">
-
-    <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-
-      <div class="grid gap-10 md:grid-cols-4">
-
-
-        <!-- BRAND -->
-        <div class="md:col-span-2">
-
-          <div class="flex items-center gap-3">
-
-            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-white font-black text-black">
-              TM
-            </div>
-
-            <div>
-
-              <div class="font-black text-white">
-                Trail<span class="text-brand-500">Market</span>
-              </div>
-
-              <div class="text-[9px] font-bold uppercase tracking-[0.25em] text-gray-500">
-                Moto Store
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <p class="mt-5 max-w-md text-sm leading-6 text-gray-400">
-            Escaparate de ofertas y accesorios para motoristas.
-            Seleccionamos productos y oportunidades para ayudarte a encontrar equipamiento para tu moto.
-          </p>
-
-        </div>
-
-
-        <!-- CATEGORIES -->
-        <div>
-
-          <h3 class="text-sm font-bold text-white">
-            Categorías
-          </h3>
-
-          <ul class="mt-4 space-y-3 text-sm text-gray-400">
-
-            <li>
-              <a href="#ofertas" data-footer-filter="cascos" class="transition hover:text-brand-400">
-                Cascos
-              </a>
-            </li>
-
-            <li>
-              <a href="#ofertas" data-footer-filter="botas" class="transition hover:text-brand-400">
-                Botas
-              </a>
-            </li>
-
-            <li>
-              <a href="#ofertas" data-footer-filter="navegacion" class="transition hover:text-brand-400">
-                Escapes
-              </a>
-            </li>
-
-            <li>
-              <a href="#ofertas" data-footer-filter="navegacion" class="transition hover:text-brand-400">
-                Soportes GPS
-              </a>
-            </li>
-
-            <li>
-              <a href="#ofertas" data-footer-filter="guantes" class="transition hover:text-brand-400">
-                Equipamiento
-              </a>
-            </li>
-
-          </ul>
-
-        </div>
-
-
-        <!-- INFORMATION -->
-        <div>
-
-          <h3 class="text-sm font-bold text-white">
-            Información
-          </h3>
-
-          <ul class="mt-4 space-y-3 text-sm text-gray-400">
-
-            <li>
-              <a href="#" class="transition hover:text-brand-400">
-                Aviso legal
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="transition hover:text-brand-400">
-                Privacidad
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="transition hover:text-brand-400">
-                Cookies
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="transition hover:text-brand-400">
-                Contacto
-              </a>
-            </li>
-
-          </ul>
-
-        </div>
-
+<section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+  <div class="rounded-[2rem] bg-neutral-950 p-7 text-white sm:p-10">
+    <div class="grid gap-10 lg:grid-cols-[.85fr_1.15fr] lg:items-center">
+      <div>
+        <p class="text-xs font-black uppercase tracking-[.2em] text-orange-400">Compra más rápido</p>
+        <h2 class="mt-3 text-3xl font-black tracking-tight sm:text-4xl">No necesitas leer un blog para encontrar tu producto.</h2>
+        <p class="mt-4 text-sm leading-6 text-neutral-400">Hemos convertido la información útil en pequeñas rutas de compra: una decisión, una selección y un botón para comprobar el producto.</p>
       </div>
-
-
-      <!-- LEGAL -->
-      <div class="mt-10 border-t border-white/10 pt-8">
-
-        <div class="rounded-xl border border-white/10 bg-white/5 p-5">
-
-          <p class="text-xs leading-6 text-gray-400">
-
-            <strong class="text-gray-300">
-              Aviso de afiliación:
-            </strong>
-
-            Esta página puede participar en programas de afiliación.
-            Algunos enlaces pueden generar una comisión para TrailMarket si realizas
-            una compra después de acceder a ellos. Esto no supone necesariamente un
-            coste adicional para el comprador.
-
-            Los precios, descuentos, tallas, vendedores y disponibilidad pueden cambiar.
-            Comprueba siempre las condiciones que aparecen en Amazon antes de realizar una compra.
-
-          </p>
-
-        </div>
-
-
-        <div class="mt-6 flex flex-col justify-between gap-3 text-xs text-gray-500 sm:flex-row">
-
-          <p>
-            © 2026 TrailMarket. Todos los derechos reservados.
-          </p>
-
-          <p>
-            Los precios y disponibilidad pueden variar.
-          </p>
-
-        </div>
-
+      <div class="grid gap-3 sm:grid-cols-2">
+        <a href="#productos" data-guide="cascos" class="rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:bg-white/10"><div class="text-2xl">🪖</div><div class="mt-3 text-sm font-black">Voy a comprar casco</div><div class="mt-1 text-xs text-neutral-400">Ve directamente a integrales.</div></a>
+        <a href="#productos" data-guide="guantes" class="rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:bg-white/10"><div class="text-2xl">🧤</div><div class="mt-3 text-sm font-black">Necesito guantes</div><div class="mt-1 text-xs text-neutral-400">Opciones urbanas y de carretera.</div></a>
+        <a href="#productos" data-guide="botas" class="rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:bg-white/10"><div class="text-2xl">🥾</div><div class="mt-3 text-sm font-black">Busco calzado</div><div class="mt-1 text-xs text-neutral-400">Botas y zapatillas de moto.</div></a>
+        <a href="#productos" data-guide="navegacion" class="rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:bg-white/10"><div class="text-2xl">📱</div><div class="mt-3 text-sm font-black">Quiero llevar el móvil</div><div class="mt-1 text-xs text-neutral-400">Soportes para moto.</div></a>
+        <a href="#productos" data-guide="intercom" class="rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:bg-white/10"><div class="text-2xl">🎧</div><div class="mt-3 text-sm font-black">Quiero un intercom</div><div class="mt-1 text-xs text-neutral-400">Modelos Cardo.</div></a>
+        <a href="#productos" data-guide="equipaje" class="rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:bg-white/10"><div class="text-2xl">🎒</div><div class="mt-3 text-sm font-black">Necesito equipaje</div><div class="mt-1 text-xs text-neutral-400">Bolsas y soluciones GIVI.</div></a>
       </div>
+    </div>
+  </div>
+</section>
 
+<section class="border-y border-black/5 bg-white">
+  <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+    <div class="max-w-2xl">
+      <p class="text-xs font-black uppercase tracking-[.2em] text-orange-600">Ayuda para decidir</p>
+      <h2 class="mt-2 text-3xl font-black tracking-tight sm:text-4xl">10 respuestas rápidas antes de comprar.</h2>
+      <p class="mt-3 text-sm leading-6 text-neutral-500">Contenido propio pensado para acompañar la compra, no para convertir la web en un blog.</p>
     </div>
 
-  </footer>
+    <div class="mt-8 grid gap-3 md:grid-cols-2">
+      <details class="rounded-2xl border border-neutral-200 bg-neutral-50 p-5"><summary class="flex items-center justify-between text-sm font-black">¿Qué debo mirar primero al comprar un casco?<span class="text-orange-500">+</span></summary><p class="pt-3 text-xs leading-6 text-neutral-600">Empieza por el tipo de casco, la talla y el ajuste. Después compara el modelo concreto y sus características antes de mirar el precio.</p></details>
+      <details class="rounded-2xl border border-neutral-200 bg-neutral-50 p-5"><summary class="flex items-center justify-between text-sm font-black">¿Tiene sentido comprar guantes de verano?<span class="text-orange-500">+</span></summary><p class="pt-3 text-xs leading-6 text-neutral-600">Sí, si buscas ventilación y tacto de los mandos en épocas cálidas. Comprueba siempre talla, protección y uso previsto.</p></details>
+      <details class="rounded-2xl border border-neutral-200 bg-neutral-50 p-5"><summary class="flex items-center justify-between text-sm font-black">¿Botas o zapatillas de moto?<span class="text-orange-500">+</span></summary><p class="pt-3 text-xs leading-6 text-neutral-600">Depende de tu uso. Las botas priorizan cobertura; las zapatillas suelen encajar mejor si buscas un formato más urbano. Revisa las especificaciones de cada modelo.</p></details>
+      <details class="rounded-2xl border border-neutral-200 bg-neutral-50 p-5"><summary class="flex items-center justify-between text-sm font-black">¿Qué soporte de móvil necesito?<span class="text-orange-500">+</span></summary><p class="pt-3 text-xs leading-6 text-neutral-600">Primero decide el sistema que quieres utilizar y comprueba la compatibilidad del soporte con tu teléfono, funda y manillar.</p></details>
+      <details class="rounded-2xl border border-neutral-200 bg-neutral-50 p-5"><summary class="flex items-center justify-between text-sm font-black">¿Intercomunicador básico o uno más completo?<span class="text-orange-500">+</span></summary><p class="pt-3 text-xs leading-6 text-neutral-600">Para uso individual puede bastar un modelo sencillo. Si vas a comunicarte habitualmente con otra persona, compara las funciones de intercomunicación del modelo concreto.</p></details>
+      <details class="rounded-2xl border border-neutral-200 bg-neutral-50 p-5"><summary class="flex items-center justify-between text-sm font-black">¿Qué tamaño de bolsa necesito?<span class="text-orange-500">+</span></summary><p class="pt-3 text-xs leading-6 text-neutral-600">Haz una lista de lo que llevas normalmente y elige capacidad con margen. Comprueba también cómo se fija a tu moto.</p></details>
+      <details class="rounded-2xl border border-neutral-200 bg-neutral-50 p-5"><summary class="flex items-center justify-between text-sm font-black">¿Una funda de moto sirve para exterior?<span class="text-orange-500">+</span></summary><p class="pt-3 text-xs leading-6 text-neutral-600">Algunos modelos están diseñados para interior y exterior. Comprueba las indicaciones del fabricante y el tamaño antes de comprar.</p></details>
+      <details class="rounded-2xl border border-neutral-200 bg-neutral-50 p-5"><summary class="flex items-center justify-between text-sm font-black">¿Protección adicional: sí o no?<span class="text-orange-500">+</span></summary><p class="pt-3 text-xs leading-6 text-neutral-600">Si una prenda admite protecciones compatibles, revisa qué piezas incluye y qué opciones adicionales existen para ese modelo.</p></details>
+      <details class="rounded-2xl border border-neutral-200 bg-neutral-50 p-5"><summary class="flex items-center justify-between text-sm font-black">¿Por qué no ponemos un precio fijo?<span class="text-orange-500">+</span></summary><p class="pt-3 text-xs leading-6 text-neutral-600">Porque el precio, las variantes, los vendedores y la disponibilidad pueden cambiar. Preferimos enviarte al producto para que veas la información actual.</p></details>
+      <details class="rounded-2xl border border-neutral-200 bg-neutral-50 p-5"><summary class="flex items-center justify-between text-sm font-black">¿Dónde compruebo el precio final?<span class="text-orange-500">+</span></summary><p class="pt-3 text-xs leading-6 text-neutral-600">Pulsa “Ver precio en Amazon” y comprueba el precio, talla, color, vendedor, envío y disponibilidad que aparecen en ese momento.</p></details>
+    </div>
+  </div>
+</section>
 
+<section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+  <div class="grid gap-4 md:grid-cols-3">
+    <div class="rounded-3xl border border-neutral-200 bg-white p-6"><div class="text-2xl">01</div><h3 class="mt-4 text-base font-black">Elige categoría</h3><p class="mt-2 text-xs leading-5 text-neutral-500">Filtra por el producto que realmente estás buscando.</p></div>
+    <div class="rounded-3xl border border-neutral-200 bg-white p-6"><div class="text-2xl">02</div><h3 class="mt-4 text-base font-black">Compara modelos</h3><p class="mt-2 text-xs leading-5 text-neutral-500">Mira nombres y características del producto antes de abrir Amazon.</p></div>
+    <div class="rounded-3xl border border-neutral-200 bg-white p-6"><div class="text-2xl">03</div><h3 class="mt-4 text-base font-black">Comprueba el precio</h3><p class="mt-2 text-xs leading-5 text-neutral-500">La ficha de Amazon te muestra el precio y la disponibilidad actual.</p></div>
+  </div>
+</section>
 
-  <!-- FILTER SYSTEM -->
-  <script>
-    const filterButtons = document.querySelectorAll('.filter-button, .nav-filter');
-    const products = document.querySelectorAll('.product-card');
-    const emptyState = document.getElementById('empty-state');
-    const searchInput = document.getElementById('search-input');
+</main>
 
-    let currentFilter = 'all';
+<footer class="bg-neutral-950 text-white">
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="grid gap-10 md:grid-cols-[1fr_auto]">
+      <div>
+        <div class="text-xl font-black">SOBRE <span class="text-orange-500">DOS RUEDAS</span></div>
+        <p class="mt-3 max-w-xl text-xs leading-6 text-neutral-400">Escaparate independiente de equipamiento y accesorios para motoristas. Los nombres de marcas y productos pertenecen a sus respectivos propietarios.</p>
+        <p class="mt-4 max-w-xl text-xs leading-6 text-neutral-400">En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>
+      </div>
+      <div class="text-xs text-neutral-400 md:text-right">
+        <a href="#productos" class="block py-1 hover:text-white">Productos</a>
+        <a href="#categorias" class="block py-1 hover:text-white">Categorías</a>
+        <a href="#" class="block py-1 hover:text-white">Inicio</a>
+      </div>
+    </div>
+    <div class="mt-10 border-t border-white/10 pt-6 text-[11px] leading-5 text-neutral-500">
+      Los precios, descuentos, tallas, vendedores, condiciones de envío y disponibilidad pueden cambiar. Comprueba siempre la información final en Amazon antes de realizar una compra. Los enlaces de esta versión son enlaces de navegación; cuando dispongas de tu identificación de Afiliado, deberán sustituirse por Enlaces Especiales etiquetados conforme a las políticas del programa.
+    </div>
+  </div>
+</footer>
 
-    function updateProducts() {
-      const query = (searchInput?.value || '').trim().toLowerCase();
-      let visibleProducts = 0;
+<script>
+const products = [...document.querySelectorAll('.product-card')];
+const filters = [...document.querySelectorAll('.filter')];
+const searchInput = document.getElementById('searchInput');
+const resultCount = document.getElementById('resultCount');
+const emptyState = document.getElementById('emptyState');
+let activeCategory = 'all';
 
-      products.forEach(product => {
-        const category = product.dataset.category;
-        const text = product.textContent.toLowerCase();
+function applyFilters(){
+  const q = searchInput.value.trim().toLowerCase();
+  let visible = 0;
 
-        const matchesFilter = currentFilter === 'all' || category === currentFilter;
-        const matchesSearch = !query || text.includes(query);
+  products.forEach(card => {
+    const category = card.dataset.category;
+    const search = card.dataset.search.toLowerCase();
+    const categoryOK = activeCategory === 'all' || category === activeCategory;
+    const textOK = !q || search.includes(q);
+    const show = categoryOK && textOK;
+    card.classList.toggle('hidden', !show);
+    if(show) visible++;
+  });
 
-        if (matchesFilter && matchesSearch) {
-          product.classList.remove('hide-product');
-          visibleProducts++;
-        } else {
-          product.classList.add('hide-product');
-        }
-      });
+  resultCount.textContent = `${visible} ${visible === 1 ? 'producto' : 'productos'}`;
+  emptyState.classList.toggle('hidden', visible !== 0);
+}
 
-      if (visibleProducts === 0) {
-        emptyState.classList.remove('hidden');
-      } else {
-        emptyState.classList.add('hidden');
-      }
-    }
+function setCategory(category){
+  activeCategory = category;
+  filters.forEach(btn => btn.classList.toggle('active', btn.dataset.filter === category));
+  applyFilters();
+}
 
-    function setActiveFilter(filter) {
-      currentFilter = filter;
+filters.forEach(btn => btn.addEventListener('click', e => {
+  e.preventDefault();
+  setCategory(btn.dataset.filter);
+  document.getElementById('productos').scrollIntoView({behavior:'smooth'});
+}));
 
-      filterButtons.forEach(btn => {
-        const active = btn.dataset.filter === filter;
-        btn.classList.toggle('active-filter', active);
-        if (active) {
-          btn.classList.remove('bg-white', 'text-gray-600');
-        } else {
-          btn.classList.add('bg-white', 'text-gray-600');
-        }
-      });
+document.querySelectorAll('.category-tile').forEach(btn => {
+  btn.addEventListener('click', () => {
+    setCategory(btn.dataset.category);
+    document.getElementById('productos').scrollIntoView({behavior:'smooth'});
+  });
+});
 
-      updateProducts();
+document.querySelectorAll('[data-category-link]').forEach(link => {
+  link.addEventListener('click', () => setCategory(link.dataset.categoryLink));
+});
 
-      document.getElementById('ofertas')?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
+document.querySelectorAll('[data-guide]').forEach(link => {
+  link.addEventListener('click', () => setCategory(link.dataset.guide));
+});
 
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        setActiveFilter(button.dataset.filter);
-      });
-    });
-
-    searchInput?.addEventListener('input', updateProducts);
-
-    document.querySelectorAll('[data-footer-filter]').forEach(link => {
-      link.addEventListener('click', event => {
-        event.preventDefault();
-        setActiveFilter(link.dataset.footerFilter);
-      });
-    });
-
-    updateProducts();
-  </script>
+searchInput.addEventListener('input', applyFilters);
+applyFilters();
+</script>
 
 </body>
 </html>
